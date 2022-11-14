@@ -1,13 +1,22 @@
-import React, {Component} from 'react';
+import React from 'react';
+import TodoLine from "./todoLine";
 
-function List() {
+function TodoList({todos, setTodos, filteredTodos }) {
     return (
-        <div className="todo">
+        <div className="todo-container">
             <ul className="todo-list">
-
+                {filteredTodos.map((todo) => (
+                    <TodoLine
+                        text={todo.text}
+                        todo={todo}
+                        key={todo.id}
+                        todos={todos}
+                        setTodos={setTodos}
+                    />
+                ))}
             </ul>
         </div>
     )
 }
 
-export default List;
+export default TodoList;
