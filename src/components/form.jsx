@@ -3,8 +3,8 @@ import {useState} from "react";
 
 function Form({inputText, setInputText, todos, setTodos}) {
 
-    const [alertWarning, setAlertWarning] = useState('');
-    const [alertSuccess, setAlertSuccess] = useState('');
+    const [alertWarning, setAlertWarning] = useState(false);
+    const [alertSuccess, setAlertSuccess] = useState(false);
 
     const inputValue = (e) => {
         setInputText(e.target.value)
@@ -41,7 +41,7 @@ function Form({inputText, setInputText, todos, setTodos}) {
                     <i className="fas fa-plus-circle"></i>
                 </button>
                 <div className="select">
-                    <select name="todos" className="filter-todo">
+                    <select name="todos" className="filter-todo" onChange={inputValue}>
                         <option value="all">All</option>
                         <option value="completed">Completed</option>
                         <option value="uncompleted">Uncompleted</option>
